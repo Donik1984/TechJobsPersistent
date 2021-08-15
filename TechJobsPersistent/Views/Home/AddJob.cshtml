@@ -7,11 +7,11 @@
       method="post">
     <div class="form-group">
 
-        <label asp-for="@Model.JobName">Name</label>
+        <label asp-for="JobName">Name</label>
 
-        <input class="form-control" asp-for="@Model.JobName" />
+        <input class="form-control" asp-for="JobName" />
 
-        <span asp-validation-for="@Model.JobName"></span>
+        <span asp-validation-for="JobName"></span>
 
     </div>
 
@@ -22,7 +22,27 @@
         </select>
     </div>
 
+    <div class="form-group">
+        @foreach (Skill skill in Model.Skills)
+        {
+            <label for="@skill.Id">@skill.Name</label>
+            <input type="checkbox"
+                   name="selectedSkills"
+                   value="@skill.Id" />
+        }
+    </div>
+
     <input type="submit" value="Add Job" />
 </form>
 
-<a asp-controller="Employer" asp-action="Add">Create a New Employer</a>
+<br />
+
+<div>
+    <a asp-controller="Employer" asp-action="Add">Create a New Employer</a>
+</div>
+
+<br />
+
+<div>
+    <a asp-controller="Skill" asp-action="Add">Create a New Skill</a>
+</div>

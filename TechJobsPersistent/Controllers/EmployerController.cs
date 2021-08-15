@@ -52,17 +52,6 @@ namespace TechJobsPersistent.Controllers
             return View("~/Views/Employer/Add.cshtml", addEmployerViewModel);
         }
 
-        //public IActionResult About(int id)
-        //{
-        //    List<Employer> employers = _dbContext.Employers
-        //        .Where(e => e.Id == id)
-        //        .Include(e => e.Name)
-        //        .Include(e => e.Location)
-        //        .ToList();
-
-        //    return View(employers);
-        //}
-
         public IActionResult About(int id)
         {
             Employer thisEmployer = _dbContext.Employers.Find(id);
